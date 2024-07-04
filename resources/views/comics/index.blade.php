@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Comics')
+@section('title', 'Index')
 
 @section('content')
     <h1>Questi sono i fumetti disponibili:</h1>
