@@ -15,7 +15,7 @@ class ComicController extends Controller
         $data = [
             'books' => Comic::all()
         ];
-        return view('comics', $data);
+        return view('comics.index', $data);
     }
 
     /**
@@ -39,7 +39,10 @@ class ComicController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = [
+            'books' => Comic::find($id)
+        ];
+        return view('comics.show', $data);
     }
 
     /**

@@ -4,9 +4,9 @@
 
 @section('content')
     <h1>Questi sono i fumetti disponibili:</h1>
-    @foreach ($books as $book)
+    @foreach ($books as $index => $book)
         <div>
-            {{ $book->title }}
+            <a href="{{ route('comics.show',$index+1)}}">{{ $book->title }}</a>
         </div>
     @endforeach
 @endsection
