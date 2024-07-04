@@ -23,6 +23,14 @@ class ComicsTableSeeder extends Seeder
         //     $newComicbook->save();
         
         // }
-        
+        $comics = config('comics');
+
+        foreach($comics as $comic){
+            $newComicbook = new Comic();
+            $newComicbook->title = $comic['title'];
+            $newComicbook->description = $comic['description'];
+            $newComicbook->price = $comic['price'];
+            $newComicbook->save();
+        }
     }
 }
