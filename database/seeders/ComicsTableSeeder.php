@@ -14,10 +14,14 @@ class ComicsTableSeeder extends Seeder
      */
     public function run(Faker $faker): void
     {
-        $newComicbook = new Comic();
-        $newComicbook->title = "Spiderman";
-        $newComicbook->description = "Questo è la descrizione di Spiderman";
-        $newComicbook->price = "€19,99";
-        $newComicbook->save();
+        for($i=0;$i<100;$i++){
+            
+            $newComicbook = new Comic();
+            $newComicbook->title = $faker->name();
+            $newComicbook->description = $faker->paragraph();
+            $newComicbook->price = '€' . $faker->numberBetween(0,20)+0.99;
+            $newComicbook->save();
+        
+        }
     }
 }
