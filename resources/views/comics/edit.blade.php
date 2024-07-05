@@ -13,7 +13,7 @@
         <p>
             <label for="description">Descrizione</label>
         </p>
-        <textarea name="description" id="description" cols="30" rows="10" required placeholder="{{$book['description']}}"></textarea>
+        <textarea name="description" id="description" cols="30" rows="10" required>{{$book['description']}}</textarea>
         <p>
             <label for="price" required></label>
         </p>

@@ -12,5 +12,8 @@
     <div class="price">
         Price : {{$books->price}}
     </div>
+    <div>
+        <a href="{{ route('comics.edit',$books->id)}}">edit</a>
+    </div>
 </div>
 @endsection
