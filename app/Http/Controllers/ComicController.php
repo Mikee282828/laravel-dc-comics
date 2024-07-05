@@ -44,12 +44,12 @@ class ComicController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Comic $comic)
     {
         $data = [
-            'books' => Comic::find($id)
+            'books' => $comic
         ];
-        return view('comics.show', $data);
+        return view('comics.show', $data);  
     }
 
     /**
@@ -64,17 +64,16 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Comic $editItem)
     {
         $data = $request->all();
-        $editItem = Comic::find($id);
 
         $editItem->title = $data['title'];
         $editItem->description = $data['description'];
         $editItem->price = $data['price'];
         $editItem->save();
 
-        return(redirect()->route('comics.show',$id));
+        return(redirect()->route('comics.show',$editItem->id));
     }
 
     /**
