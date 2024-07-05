@@ -3,11 +3,12 @@
 @section('title', 'Create')
 
 @section('content')
-    <form action="">
+    <form method="POST" action="{{ route('comics.store') }}">
+        @csrf
         <p>
             <label for="title">Titolo</label>
         </p>
-        <input type="text" id="title">
+        <input name="title" type="text" id="title">
         <p>
             <label for="description">Descrizione</label>
         </p>
@@ -15,7 +16,7 @@
         <p>
             <label for="price">Prezzo</label>
         </p>
-        <input type="text">
+        <input name="price" type="text">
         <br>
         <input type="submit">
     </form>
