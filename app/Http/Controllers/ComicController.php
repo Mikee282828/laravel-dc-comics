@@ -57,7 +57,8 @@ class ComicController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $data = ['book'=> Comic::find($id)];
+        return view('comics.edit', $data);
     }
 
     /**
