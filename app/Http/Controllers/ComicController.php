@@ -31,14 +31,25 @@ class ComicController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $request->all();
+        // $data = $request->all();
+        // $newComicbook = new Comic();
+        // $newComicbook->title = $data['title'];
+        // $newComicbook->description = $data['description'];
+        // $newComicbook->price = $data['price'];
+        // $newComicbook->save();
+
         $newComicbook = new Comic();
-        $newComicbook->title = $data['title'];
-        $newComicbook->description = $data['description'];
-        $newComicbook->price = $data['price'];
+
+        $data = $request->validate([
+            'title'=>'required',
+            'price'=>'required',
+            'description'=>'required'
+        ]);
+
+        $newComicbook->fill($data);
         $newComicbook->save();
 
-        return(redirect()->route('comics.show',$newComicbook->id));
+        return(redirect()->route('comics.show',$newComicbook));
     }
 
     /**
@@ -64,16 +75,21 @@ class ComicController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comic $editItem)
+    public function update(Request $request, Comic $comic)
     {
-        $data = $request->all();
+        $data = $request->validate([
+            'title'=>'required',
+            'description'=>'required',
+            'price'=>'required'
+        ]);
 
-        $editItem->title = $data['title'];
-        $editItem->description = $data['description'];
-        $editItem->price = $data['price'];
-        $editItem->save();
+        // $editItem->title = $data['title'];
+        // $editItem->description = $data['description'];
+        // $editItem->price = $data['price'];
+        // $editItem->save();
+        $comic->update($data);
 
-        return(redirect()->route('comics.show',$editItem->id));
+        return redirect()->route('comics.show',$comic);
     }
 
     /**
