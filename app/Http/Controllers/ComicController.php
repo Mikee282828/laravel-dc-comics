@@ -58,7 +58,7 @@ class ComicController extends Controller
     public function edit(string $id)
     {
         $data = ['book'=> Comic::find($id)];
-        return view('comics.edit', $data);
+        return view('comics.edit', $data); 
     }
 
     /**
@@ -79,8 +79,9 @@ class ComicController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Comic $comic)
     {
-        //
+        $comic->delete();
+        return redirect()->route("comics.index");
     }
 }

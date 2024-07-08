@@ -19,6 +19,6 @@
         </p>
         <input name="price" type="text" value="{{$book['price']}}">
         <br>
-        <input type="submit">
+        <input type="submit"> q
     </form>
 @endsection
