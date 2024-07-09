@@ -17,21 +17,21 @@
         <p>
             <label for="title">Titolo</label>
         </p>
-        <input name="title" type="text" id="title">
+        <input name="title" type="text" id="title" value="{{old('title')}}">
         @error('title')
             <div>{{$message}}</div>
         @enderror
         <p>
             <label for="description">Descrizione</label>
         </p>
-        <textarea name="description" id="description" cols="30" rows="10"></textarea>
+        <textarea name="description" id="description" cols="30" rows="10">{{old('description')}}</textarea>
         @error('description')
             <div>{{$message}}</div>
         @enderror
         <p>
             <label for="price">Prezzo</label>
         </p>
-        <input name="price" type="text">
+        <input name="price" type="text" value="{{old('price')}}">
         <br>
         @error('price')
             <div>{{$message}}</div>
